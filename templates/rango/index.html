@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>rango</title>
+        <link rel="stylesheet" href="../static/css/style.css">
+    </head>
+
+    <body>
+        <h1>{{ message }}</h1>
+        <a href="/rango/about/"> <div class="link1">About</div></a><br />
+        <img src="{% static "images/1.jpg" %}" alt="Picture of Rango" />
+        <br>
+        <br>
+        <br>
+
+        {% if categories %}
+            <ul>
+                {% for category in categories %}
+                <li><a href="category/{{ category.slug }}" >{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>Категории пустые</strong>
+        {% endif %}
+    </body>
+</html>
+
+
